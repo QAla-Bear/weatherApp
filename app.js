@@ -1,20 +1,6 @@
-const yargs = require('yargs');
-const request = require('request');
-const geocode = require('./geocode/geocode');
-const weather = require('./weather/weather.js');
 
-const argv = yargs
-  .options({
-    a: {
-      demand: true,
-      alias: 'address',
-      describe: 'Address to fetch weather for.',
-      string: true
-    }
-})
-.help()
-.alias('h', 'help')
-.argv;
+const request = require('request');
+const axios = require('axios');
 
 
 var addressRequest = geocode.geocodeAddress(argv.address, (errorMessage, result) => {
